@@ -14,7 +14,8 @@ The main goal of the Observer pattern is to focus on one core component of your 
 
 The Subject can be thought of as the meat of your application. This is the part of your application where your core logic and data is stored that runs in your application. In the context of a tic tac toe application, a class called `Board` might be considered the Subject, because it would be the class that knows about the state of the board. To picture this better, I will provide a sample of what this `Subject` abstraction should look like:
 
-    public class Subject {
+```java
+   public class Subject {
         List<Observers> listOfObservers = new List();
 
         public void addObserver(Observer observer) {
@@ -28,8 +29,11 @@ The Subject can be thought of as the meat of your application. This is the part 
         }
     }
 
+```
+
 The `Subject` abstraction simply holds a list of observers, and when `notifyObservers(Board board)` is called, it simply loops through each observer in the list and calls update on every Observer.
 
+```java
     public class Board extends Subject {
         String[] board = new String[8];
 
@@ -38,6 +42,7 @@ The `Subject` abstraction simply holds a list of observers, and when `notifyObse
             notifyObservers(this);
         }
     }
+```
 
 Given the example of a Tic Tac Toe game, the board is changed whenever somebody makes a move. So naturally, whenever `makeMove()` is called, it should notify the Observers that it has changed state. Also there may be many different Observers that all handle the `Board` object differently.
 
@@ -46,27 +51,33 @@ The Observers, which are the view components in many GUI applications, is simply
 
 An `Observer` interface might look like:
 
+```java
     public interface Observer {
         void update(Object object);
     }
+```
 
 Since using an interface leaves it up to the concrete class that is implementing the `Observer` interface to to handle how a `Board` is updated, you can have multiple views to update the `Board` in different ways. For example:
 
+```java
     public class TerminalView implements Observer {
 
         public void update(Board board) {
           //logic that displays three spots and a newline
         }
     }
+```
 
 The `TerminalView` class prints displays the board in a way that works for a Command Line view.
 
+```java
     public class HTMLView implements Observer {
 
         public void update(Board board) {
           //logic that displays the board in a way that adds HTML markup
         }
     }
+```
 
 The `HTMLView` displays the board in a way that adds proper HTML to display it on a web page.
 
@@ -76,7 +87,8 @@ Having different implementations of your view objects makes it easy add new view
 
  Once you have these components identified and created, you must explicitly register the `Observer` to the `Subject` in the application level of your program.
 
-    public class Application {
+```java
+   public class Application {
         public void main(String [] args) {
             Board board = new Board();
             Observer view = new TerminalView();
@@ -87,6 +99,7 @@ Having different implementations of your view objects makes it easy add new view
             board.makeMove(2, "O");
         }
     }
+```
 
 
 Now that the board has an observer, and when we call `makeMove()` on the board, the board should automatically update the view object to display the board.

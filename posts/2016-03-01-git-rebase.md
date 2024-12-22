@@ -21,6 +21,7 @@ Once you know which commit you want to go back to, just run:
 
 Once you do that, you will see something like the following in your text editor:
 
+```text
     pick f7f3f6d fixed a small typo
     pick 310154e made a big refactor
     pick a5f4a0d added some file
@@ -40,13 +41,15 @@ Once you do that, you will see something like the following in your text editor:
     # However, if you remove everytheing, the rebase will be aborted.
     #
     # Note that empty commits are commented out
+```
 
 The nice thing is that when you rebase interactively, it provides documentation on what to do. So if you're new to this command, it will guide you through what will happen when you change this file. Once command that I use all the time is the `squash` command. Often times I'll find a small change or typo that doesn't deserve it's own commit or needs to be added to a previous change that I missed. Although you could `--amend` a commit, the `rebase` command would be used for when you have already pushed the change to the remote branch. So, to merge two commits, you would simply change the following:
 
+```text
     pick f7f3f6d fixed a small typo
     s 310154e made a big refactor
     pick a5f4a0d added some file
-
+```
 
 This would merge the small typo commit with the big refactor into a single commit. After closing the file, another file would open up showing both commit messages. `git` doesn't know which commit message to have, so it will ask you which one to have or you can optionally supply a new commit message if needed. Again, when this file opens up, it will also have nice messages like what is shown to help guide you. Now after you specify a commit message, save the file, and push back to the remote, your history will be forever changed.
 

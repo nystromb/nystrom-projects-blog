@@ -16,14 +16,17 @@ Learning to think in a "functional" way might take some getting used to, but aft
 
  I find that it helps to see the difference through a simple example, by trying to write a function in both an imperative language, like Java, and a functional one, like Clojure. Below I have created a function that will add all the numbers starting from 0 to a given number:
 
+```text
     (defn add-up-to [n]
       (reduce + (range n)))
 
     user=> (add-up-to 3)
     3
+```
 
 To do the same thing in Java, you would do something like this:
 
+```java
     public int addUpTo(int num) {
       int sum = 0;
 
@@ -34,13 +37,17 @@ To do the same thing in Java, you would do something like this:
       return sum;
     }
 
-    System.out.println(addUpTo(3))
+    System.out.println(addUpTo(3));
     => 3
+```
+
 
 You'll notice that in the Java example, you must set the variables `sum` and `i` in order to loop through the given number. On the other hand, in the Clojure example, you'll see that it is short and seemingly simple, but I'll explain a bit of whats happening there anyway. First you'll probably notice all the parentheses, but this just basically says in what order things are evaluated in. In this function, you pass in a number, and based on that it returns the sum of every number up to that number. In order to do this, it uses 3 functions: `range`, `reduce`, and `+`. First it will get a list of ranges from in, like so:
 
+```text
     user=> (range 3)
     (0 1 2)
+```
 
 Then it will use a reduce function, which takes two parameters, a function and a collection. So I pass it the `+` function and a range of values `(0 1 2)` and uses the `+` on each of those numbers and returns the result of applying + to every number in the list.
 

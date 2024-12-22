@@ -12,7 +12,8 @@ Basically, what ISP can be boiled down into is this:
 
 To kind of help illustrate what I'm talking about here, I'll give a simple example in Java using a car example. I think using a car as an example is a great way to illustrate this, because if you think about it, a car has a lot of moving parts. So, imagine that we have a `Car` class that uses a generic interface called `Vehicle`, like so:
 
-    public interface Vehicle {
+  ``` text 2/3
+      public interface Vehicle {
         public void turnOn();
         public void turnOff();
         public void accellerate();
@@ -45,10 +46,13 @@ To kind of help illustrate what I'm talking about here, I'll give a simple examp
             // implementation
         }
     }
+  ```
+
 
 The thing to look at here is the fact that there's a lot going on in the Vehicle interface. What if you needed to create a car that doesn't have a radio but still implements the Vehicle interface? You would be forced to implement the `startRadio()`, `changeStation()`, and the `ejectCD()` functions, and thus, violating the Interface Segregation Principle. Lets see how we might be able to avoid this issue.
 
-    public interface Startable {
+```text 2/3
+   public interface Startable {
         public void turnOn();
         public void turnOff();
     }
@@ -86,6 +90,6 @@ The thing to look at here is the fact that there's a lot going on in the Vehicle
         }
     }
 
+```
+
 This is a lot better, and the names of the interfaces should explain what is happening in the client. By having these methods prototyped in separate interfaces, you have a bit more flexibility in how you can later implement different types of vehicles with different behaviors based on what the client needs.
-
-
