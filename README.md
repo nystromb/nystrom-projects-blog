@@ -49,6 +49,14 @@ npm run watch
 npm run build
 ```
 
+### Deploying on AWS
+
+```
+1. Setup and configure an s3 bucket to allow public access
+2. Run the steps above
+3. Copy the generated output (the `./_site/` folder) into the bucket
+```
+
 ## Customize
 
 - Search for "Update me" across files in your editor to find all the site specific things you should update.
