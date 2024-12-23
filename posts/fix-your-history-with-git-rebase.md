@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Rebasing your Git History"
+title: "Fixing your History with Git Rebase"
 date: 2016-03-01
 blog: true
 ---

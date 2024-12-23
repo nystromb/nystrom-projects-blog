@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "HTTP Server From Scratch"
+title:  "How I Tested A Web Server That I Built From Scratch"
 date: 2015-11-19
 blog: true
 ---

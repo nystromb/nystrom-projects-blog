@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Programming in Pairs"
+title:  "Pair Programming Strategies"
 date:   2016-02-10
 blog: true
 ---

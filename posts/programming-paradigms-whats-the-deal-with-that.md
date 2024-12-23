@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Functional vs Imperative Programming"
+title:  "Programming Paradigms? What's the deal with that?!"
 date: 2016-01-21
 blog: true
 ---
